@@ -1,0 +1,12 @@
+<%= form_with(url: search_books_path, local: true, method: :get) do |f| %>
+  <%= f.text_field :keyword, placeholder: 'keyword' %>
+  <%= f.submit "検索" %>
+<% end %>
+<p><%= @books.length %>件の本が見つかりました</p>
+<p>----------------------</p>
+<% @books.each do |book| %>
+  <p>タイトル: <%= book.title %></p>
+  <p>著者: <%= book.author %></p>
+  <p>----------------------</p>
+<% end %>
+<a href="/books">戻る</a> 
